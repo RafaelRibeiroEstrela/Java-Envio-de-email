@@ -1,6 +1,6 @@
 import java.io.File;
-import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
@@ -15,9 +15,9 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-public class SendEmailWithGmail {
+public class Email {
 
-	public static void send(final List<String> to, final String from, final String password, List<String> cc, String subject, String text, String html, List<String> paths) {
+	public static void send(final Set<String> to, final String from, final String password, Set<String> cc, String subject, String text, String html, Set<String> paths) {
 
 		
 		//Verificar se os campos obrigatórios foram preenchidos
@@ -107,7 +107,7 @@ public class SendEmailWithGmail {
 	
 	
 
-	private static void attachments(MimeMessage message, String html, List<String> paths) throws MessagingException {
+	private static void attachments(MimeMessage message, String html, Set<String> paths) throws MessagingException {
 
 		// Adiciona um html como anexo
 		String htmlMessage = "<html>" + html + "</html>";
@@ -144,7 +144,7 @@ public class SendEmailWithGmail {
 
 	}
 	
-	private static void attachments(MimeMessage message, List<String> paths) throws MessagingException {
+	private static void attachments(MimeMessage message, Set<String> paths) throws MessagingException {
 		
 		Multipart multipart = new MimeMultipart();
 
@@ -163,7 +163,7 @@ public class SendEmailWithGmail {
 
 	}
 	
-	private static void validation(List<String> to, String from, String password) {
+	private static void validation(Set<String> to, String from, String password) {
 		
 		if (to.isEmpty() || to == null) {
 			throw new RuntimeException("To is required");
