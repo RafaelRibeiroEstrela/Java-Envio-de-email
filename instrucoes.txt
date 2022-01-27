@@ -1,0 +1,30 @@
+Api fornece serviço de envio de email de forma automatica. Ele utiliza servidor do Gmail para enviar.
+
+Para utilizar a api, basta fazer a seguinte requisicao:
+
+localhost:8080/emails - POST
+body:
+{
+    "to":[
+        "email_example@gmail.com",
+        "email_example@hotmail.com
+    ],
+    "from":"email_example@gmail.com",
+    "password":"12345",
+    "cc":[
+        "email_copyexample@gmail.com"
+    ],
+    "subject":"Subject",
+    "text":"Text",
+    "html":"",
+    "attachments":[
+         "C:/file.type"
+    ]
+}
+
+Através da api você pode enviar um email com um ou mais destinos, um ou mais copias, titulo, texto, html e até anexos.
+Para funcionar você é obrigado a informar um email válido no TO, seu email no FROM e a senha do seu Gmail no PASSWORD, 
+uma vez que o servidor do Gmail faz a verificação do email inserido.
+
+Pode ser que ocorra um erro na verificação do Gmail, pois por padrão o seu email é bloqueado para uso externo. Caso isso ocorra, 
+você deve acessar as configurações do seu gmail e desbloquear o seu email para uso externo. 
