@@ -4,12 +4,20 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
 public class Email implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
+	@NotEmpty(message = "TO is required.")
 	private Set<String> to = new HashSet<>();
+	
+	@NotBlank(message = "FROM is required.")
 	private String from;
+	
+	@NotBlank(message = "PASSWORD is required.")
 	private String password;
 	private Set<String> cc = new HashSet<>();
 	private String subject;

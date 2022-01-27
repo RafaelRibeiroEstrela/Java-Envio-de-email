@@ -1,5 +1,7 @@
 package com.example.apiemail.resource;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +20,7 @@ public class EmailResource {
 	private EmailService emailService;
 	
 	@PostMapping
-	public ResponseEntity<String> sendEmail(@RequestBody Email email){
+	public ResponseEntity<String> sendEmail(@RequestBody @Valid Email email){
 		emailService.sendEmail(email);
 		return ResponseEntity.created(null).body("Email enviado com sucesso!");
 	}
