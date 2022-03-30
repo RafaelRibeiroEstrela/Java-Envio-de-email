@@ -36,8 +36,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
-			<version>2.6.3</version><!--$NO-MVN-MAN-VER$-->
+			<version>2.6.3</version><!--$NO-MVN-MAN-VER$ -->
 		</dependency>
+		
+
 
 
 	</dependencies>

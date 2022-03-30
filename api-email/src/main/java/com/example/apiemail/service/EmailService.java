@@ -73,12 +73,12 @@ public class EmailService {
 
 			}
 
-			if (email.getSubject() != null && !email.getSubject().isBlank()) {
+			if (email.getSubject() != null && !email.getSubject().isEmpty()) {	
 				// Set Subject: header field
 				message.setSubject(email.getSubject());
 			}
 
-			if (email.getText() != null && !email.getText().isBlank()) {
+			if (email.getText() != null && !email.getText().isEmpty()) {
 				// Now set the actual message
 				message.setText(email.getText());
 			}
